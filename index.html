@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glow Stopwatch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="stopwatch-panel" aria-label="Stopwatch">
+        <div class="brand-row">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <span>Stopwatch</span>
+        </div>
+
+        <div class="timer-stage">
+          <div class="orb orb-one" aria-hidden="true"></div>
+          <div class="orb orb-two" aria-hidden="true"></div>
+          <div class="timer-ring" aria-hidden="true">
+            <svg
+              viewBox="0 0 320 320"
+              role="img"
+              aria-label="Elapsed minute progress"
+            >
+              <circle class="track" cx="160" cy="160" r="138"></circle>
+              <circle class="progress" cx="160" cy="160" r="138"></circle>
+            </svg>
+            <div class="shine"></div>
+          </div>
+
+          <div class="time-readout" aria-live="polite">
+            <span id="minutes">00</span><span class="separator">:</span
+            ><span id="seconds">00</span
+            ><span class="centiseconds"
+              >.<span id="centiseconds">00</span></span
+            >
+          </div>
+          <p id="statusText" class="status-text">Ready when you are</p>
+        </div>
+
+        <div class="controls" aria-label="Stopwatch controls">
+          <button id="resetBtn" class="control-btn secondary" type="button">
+            Reset
+          </button>
+          <button id="startPauseBtn" class="control-btn primary" type="button">
+            Start
+          </button>
+          <button id="lapBtn" class="control-btn secondary" type="button">
+            Lap
+          </button>
+        </div>
+      </section>
+
+      <aside class="laps-panel" aria-label="Lap history">
+        <div class="laps-header">
+          <div>
+            <p class="eyebrow">Session</p>
+            <h1>Lap Tracker</h1>
+          </div>
+          <span id="lapCount" class="lap-count">0</span>
+        </div>
+        <ol id="lapsList" class="laps-list">
+          <li class="empty-state">
+            Start the timer and capture your first lap.
+          </li>
+        </ol>
+      </aside>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
